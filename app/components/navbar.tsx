@@ -2,11 +2,18 @@ import React from "react";
 import { AppBar, Toolbar, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import AddButton from "./addButton";
 
 const Navbar: React.FC = () => {
 	return (
 		<AppBar position="static">
-			<Toolbar>
+			<Toolbar
+				sx={{
+					display: "flex",
+					justifyContent: "space-between",
+					alignItems: "center",
+				}}
+			>
 				<Link href="/" style={{ display: "flex", alignItems: "center" }}>
 					<Image
 						src="/logo.png"
@@ -18,6 +25,7 @@ const Navbar: React.FC = () => {
 						Task Manager
 					</Typography>
 				</Link>
+				<AddButton />
 			</Toolbar>
 		</AppBar>
 	);

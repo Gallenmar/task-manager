@@ -5,6 +5,7 @@ import { Roboto } from "next/font/google";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "./theme";
 import Navbar from "./components/navbar";
+import { TaskContextProvider } from "./context/TaskContext";
 
 const roboto = Roboto({
 	weight: ["300", "400", "500", "700"],
@@ -26,12 +27,14 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={roboto.variable}>
-				<AppRouterCacheProvider>
-					<ThemeProvider theme={theme}>
-						<Navbar />
-						{children}
-					</ThemeProvider>
-				</AppRouterCacheProvider>
+				<TaskContextProvider>
+					<AppRouterCacheProvider>
+						<ThemeProvider theme={theme}>
+							<Navbar />
+							{children}
+						</ThemeProvider>
+					</AppRouterCacheProvider>
+				</TaskContextProvider>
 			</body>
 		</html>
 	);
