@@ -63,7 +63,6 @@ export default function Add() {
 							<FormLabel htmlFor="text">Title</FormLabel>
 							<TextField
 								id="title"
-								type="title"
 								name="title"
 								placeholder="Write a task title"
 								autoFocus
@@ -78,6 +77,7 @@ export default function Add() {
 								name="description"
 								placeholder="Describe a task"
 								variant="outlined"
+								autoComplete="off"
 							/>
 						</FormControl>
 						<FormControl fullWidth>
@@ -114,13 +114,7 @@ export default function Add() {
 							</Select>
 						</FormControl>
 
-						<Button
-							type="submit"
-							color="secondary"
-							variant="contained"
-							fullWidth
-							sx={{ mt: 2 }}
-						>
+						<Button type="submit" variant="contained" fullWidth sx={{ mt: 2 }}>
 							Create Task
 						</Button>
 					</Box>

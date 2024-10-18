@@ -5,9 +5,7 @@ import Link from "next/link";
 const AddButton: React.FC = () => {
 	return (
 		<Link href="/add">
-			<Button variant="contained" color="secondary">
-				Add Task
-			</Button>
+			<Button variant="contained">Add Task</Button>
 		</Link>
 	);
 };
