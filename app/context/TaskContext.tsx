@@ -4,6 +4,9 @@ import { createContext, FC, ReactNode, useContext, useState } from "react";
 
 export interface Task {
 	title: string;
+	description: string | null;
+	status: "open" | "in-progress" | "closed" | null;
+	type: "feature" | "bug" | "enhancement" | "task" | null;
 }
 
 interface TaskContextType {
@@ -16,7 +19,7 @@ const TaskContext = createContext<TaskContextType | undefined>(undefined);
 export const TaskContextProvider: FC<{ children: ReactNode }> = ({
 	children,
 }) => {
-	const [tasks, setTasks] = useState<Task[]>([{ title: "init" }]);
+	const [tasks, setTasks] = useState<Task[]>([]);
 
 	const addTask = (newTask: Task) => {
 		setTasks((prevTasks) => [...prevTasks, newTask]);

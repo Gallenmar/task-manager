@@ -1,6 +1,6 @@
 "use client";
 
-import { Typography } from "@mui/material";
+import { Card, Typography } from "@mui/material";
 import { Task, useTaskContext } from "./context/TaskContext";
 
 export default function Home() {
@@ -8,9 +8,11 @@ export default function Home() {
 
 	return (
 		<div>
-			<Typography variant="h4">Hello world!</Typography>
+			<Typography variant="h4">Task List:</Typography>
 			{tasks.map((task: Task, index: number) => (
-				<Typography key={index}>{task.title}</Typography>
+				<Card variant="outlined" key={index}>
+					{task.title}
+				</Card>
 			))}
 		</div>
 	);
