@@ -38,9 +38,9 @@ export default function Add() {
 			<Stack
 				sx={{
 					alignContent: "center",
-					justifyContent: "center",
 					height: { xs: "100%", sm: "100dvh" },
 					p: 2,
+					marginTop: "7rem",
 				}}
 			>
 				<Card variant="outlined">

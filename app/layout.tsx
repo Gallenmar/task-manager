@@ -6,6 +6,7 @@ import theme from "./theme";
 import Navbar from "./components/navbar";
 import { TaskContextProvider } from "./context/TaskContext";
 import { ThemeProvider } from "@mui/material/styles";
+import { Container } from "@mui/material";
 
 const roboto = Roboto({
 	weight: ["300", "400", "500", "700"],
@@ -31,7 +32,7 @@ export default function RootLayout({
 					<AppRouterCacheProvider>
 						<ThemeProvider theme={theme}>
 							<Navbar />
-							{children}
+							<Container maxWidth="md">{children}</Container>
 						</ThemeProvider>
 					</AppRouterCacheProvider>
 				</TaskContextProvider>
