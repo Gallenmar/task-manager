@@ -15,6 +15,7 @@ import {
 } from "@mui/material";
 import { useTaskContext } from "../context/TaskContext";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 export default function Add() {
 	const { addTask } = useTaskContext();
@@ -22,15 +23,19 @@ export default function Add() {
 	const [type, setType] = useState("");
 	const [status, setStatus] = useState("");
 
+	const router = useRouter();
+
 	const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
 		event.preventDefault();
 		const data = new FormData(event.currentTarget);
 		addTask({
+			id: Math.random().toString(36).substr(2, 9),
 			title: data.get("title") as string,
 			description: data.get("description") as string,
 			type: type as "feature" | "bug" | "enhancement" | "task",
 			status: status as "open" | "in-progress" | "closed",
 		});
+		router.push("/");
 	};
 
 	return (
@@ -88,7 +93,6 @@ export default function Add() {
 								value={type}
 								onChange={(event) => setType(event.target.value)}
 								label="Type"
-								required
 							>
 								<MenuItem value="">---None---</MenuItem>
 								<MenuItem value="feature">Feature</MenuItem>
@@ -105,7 +109,6 @@ export default function Add() {
 								value={status}
 								onChange={(event) => setStatus(event.target.value)}
 								label="Status"
-								required
 							>
 								<MenuItem value="">---None---</MenuItem>
 								<MenuItem value="open">Open</MenuItem>
