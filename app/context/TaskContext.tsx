@@ -12,7 +12,7 @@ export interface Task {
 
 interface TaskContextType {
   tasks: Task[];
-  addTask: (newTask: Task) => void;
+  addOrEditTask: (newTask: Task) => void;
   deleteTask: (taskId: string) => void;
 }
 
@@ -23,16 +23,31 @@ export const TaskContextProvider: FC<{ children: ReactNode }> = ({
 }) => {
   const [tasks, setTasks] = useState<Task[]>(tasksData as Task[]);
 
-  const addTask = (newTask: Task) => {
-    setTasks((prevTasks) => [...prevTasks, newTask]);
+  const addOrEditTask = (newTask: Task) => {
+    setTasks((prevTasks) => {
+      const existingTaskIndex = prevTasks.findIndex(
+        (task) => task.id === newTask.id
+      );
+
+      if (existingTaskIndex !== -1) {
+        // If task exists, update it
+        const updatedTasks = [...prevTasks];
+        updatedTasks[existingTaskIndex] = newTask;
+        return updatedTasks;
+      } else {
+        // If task does not exist, add it
+        return [...prevTasks, newTask];
+      }
+    });
   };
 
   const deleteTask = (taskId: string) => {
+    console.log(tasks);
     setTasks((prevTasks) => prevTasks.filter((task) => task.id !== taskId));
   };
 
   return (
-    <TaskContext.Provider value={{ tasks, addTask, deleteTask }}>
+    <TaskContext.Provider value={{ tasks, addOrEditTask, deleteTask }}>
       {children}
     </TaskContext.Provider>
   );

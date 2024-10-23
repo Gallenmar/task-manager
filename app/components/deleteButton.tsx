@@ -4,16 +4,19 @@ import React from 'react';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useTaskContext } from '../context/TaskContext';
+import { useRouter } from 'next/navigation';
 
-interface AddButtonProps {
+interface DeleteButtonProps {
   taskId: string;
 }
 
-const AddButton: React.FC<AddButtonProps> = ({ taskId }) => {
+const DeleteButton: React.FC<DeleteButtonProps> = ({ taskId }) => {
   const { deleteTask } = useTaskContext();
+  const router = useRouter();
 
   const handleSubmit = () => {
     deleteTask(taskId);
+    router.push('/');
   };
 
   return (
@@ -25,4 +28,4 @@ const AddButton: React.FC<AddButtonProps> = ({ taskId }) => {
   );
 };
 
-export default AddButton;
+export default DeleteButton;
