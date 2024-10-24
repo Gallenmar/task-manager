@@ -1,0 +1,30 @@
+[
+  {
+    "id": "1",
+    "title": "Fix login issue",
+    "description": "Users are unable to login after the latest update.",
+    "status": "in-progress",
+    "type": "bug"
+  },
+  {
+    "id": "2",
+    "title": "Add dark mode feature",
+    "description": "Implement dark mode support for the application.",
+    "status": "open",
+    "type": "feature"
+  },
+  {
+    "id": "3",
+    "title": "Enhance dashboard performance",
+    "description": "Optimize the dashboard to load faster.",
+    "status": "closed",
+    "type": "enhancement"
+  },
+  {
+    "id": "4",
+    "title": "Update documentation",
+    "description": null,
+    "status": "open",
+    "type": "task"
+  }
+]
