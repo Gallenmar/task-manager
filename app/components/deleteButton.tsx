@@ -12,13 +12,13 @@ interface AddButtonProps {
 const AddButton: React.FC<AddButtonProps> = ({ taskId }) => {
   const { deleteTask } = useTaskContext();
 
-  const handleSubmit = () => {
-    deleteTask(taskId);
-  };
-
   return (
     <>
-      <Button variant="contained" color="error" onClick={handleSubmit}>
+      <Button
+        variant="contained"
+        color="error"
+        onClick={() => deleteTask(taskId)}
+      >
         <DeleteIcon />
       </Button>
     </>
