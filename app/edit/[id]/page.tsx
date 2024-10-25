@@ -1,12 +1,10 @@
 'use client';
 
 import { Card, Container, Stack, Typography } from '@mui/material';
-import { useTaskContext } from '../context/TaskContext';
-import { useRouter } from 'next/navigation';
-import TaskForm from '../components/TaskForm';
+import TaskForm from '../../components/TaskForm';
 
-export default function Add() {
-  const router = useRouter();
+export default function Edt({ params }: { params: { id: string } }) {
+  const { id } = params;
 
   return (
     <Container maxWidth="sm">
@@ -23,10 +21,10 @@ export default function Add() {
             variant="h5"
             sx={{ display: 'flex', justifyContent: 'center' }}
           >
-            Create a Task
+            Edit a Task
           </Typography>
 
-          <TaskForm />
+          <TaskForm id={id} />
         </Card>
       </Stack>
     </Container>
