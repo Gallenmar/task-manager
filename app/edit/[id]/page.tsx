@@ -1,15 +1,10 @@
 'use client';
 
 import { Card, Container, Stack, Typography } from '@mui/material';
-import { Task, useTaskContext } from '../../context/TaskContext';
-import { useRouter } from 'next/navigation';
 import TaskForm from '../../components/TaskForm';
-import { useEffect, useState } from 'react';
 
 export default function Edt({ params }: { params: { id: string } }) {
   const { id } = params;
-  const { tasks, addOrEditTask } = useTaskContext();
-  const router = useRouter();
 
   return (
     <Container maxWidth="sm">
