@@ -12,16 +12,14 @@ interface DeleteButtonProps {
 
 const DeleteButton: React.FC<DeleteButtonProps> = ({ taskId }) => {
   const { deleteTask } = useTaskContext();
-  const router = useRouter();
-
-  const handleSubmit = () => {
-    deleteTask(taskId);
-    router.push('/');
-  };
 
   return (
     <>
-      <Button variant="contained" color="error" onClick={handleSubmit}>
+      <Button
+        variant="contained"
+        color="error"
+        onClick={() => deleteTask(taskId)}
+      >
         <DeleteIcon />
       </Button>
     </>
