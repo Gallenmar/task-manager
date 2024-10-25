@@ -4,7 +4,6 @@ import React from 'react';
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useTaskContext } from '../context/TaskContext';
-import { useRouter } from 'next/navigation';
 
 interface DeleteButtonProps {
   taskId: string;
